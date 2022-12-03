@@ -1,13 +1,18 @@
-let inputForm = document.getElementById("validation-input");
-let attributeValue = inputForm.getAttribute("data-length");
+let input=document.querySelector('[data-length="6"]');
 
+let inputValueLength=input.dataset.length;
 
+function checkValueInput() {
+  if (input.value.classListlength==inputValueLength) {
+    input.classList.remove("invalid");
+    input.classList.add("valid");
+    return
+  }
+  input.classList.remove("valid");
+  input.classList.add("invalid");
+};
 
-
-
-
-
-
+input.addEventListener("blur",checkValueInput);
 
 
 //Napisz skrypt, który przy utracie fokusu na polu input (zdarzenie blur) sprawdza jego zawartość na prawidłową liczbę wprowadzonych symboli.
