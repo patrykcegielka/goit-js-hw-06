@@ -1,31 +1,26 @@
-let loginForm=document.querySelector(".login-form");
-let emailInput=document.querySelector('[name="email"]');
-let passwordInput=document.querySelector('[name="password"]');
-let submitBtn=document.querySelector('button[type="submit"]');
+const form = document.querySelector('form');
 
-class User {
-  constructor(email,password) {
-    this.email=email;
-    this.password=password;
-  }
-};
+const submitForm = (event) => {
+    event.preventDefault();
 
-function createAndShowUserObject(email,password){
-   userObject=new User(email,password);
-  console.log(userObject);
-};
+    const emailValue = form.elements.email.value;
+    const passwordValue = form.elements.password.value;
 
-function handlingForm(evt){
-  evt.preventDefault();
-  if (!emailInput.value||!passwordInput.value) {
-    alert("all items should be completed!!");
-    return
-  };
-  createAndShowUserObject(emailInput.value,passwordInput.value);
-  loginForm.reset()
-};
+    if (!emailValue || !passwordValue) {
+        alert('All fields must be filled')
+    } else {
+   
+        const userData = {
+            email: emailValue,
+            password: passwordValue
+        };
 
-loginForm.addEventListener("submit",handlingForm);
+        console.log(userData);
+
+        form.reset();
+    }
+}
+form.addEventListener('submit', submitForm);
 
 
 //Opracowanie przesyłania formularza form.login-form powinno przebiegać zgodnie ze zdarzeniem submit.

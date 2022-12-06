@@ -1,11 +1,11 @@
-let inputRange=document.getElementById("font-size-control");
-let spanText=document.getElementById("text");
+const inputElement = document.getElementById("font-size-control");
+const spanElement = document.getElementById("text");
 
-function changeFontSize(){
-  spanText.style.fontSize=inputRange.value+"px"
-};
+let changeFontSize = (event) => { 
+    let fontSize = event.target.value + "px";
+    spanElement.style.fontSize = fontSize;
+}
 
-inputRange.addEventListener("input",changeFontSize);
-
+inputElement.addEventListener("input", changeFontSize);
 
 //Napisz skrypt, który reaguje na zmianę wartości input#font-size-control (zdarzenie input) i zmienia styl inline span#text aktualizując właściwość font-size. W rezultacie, podczas przeciągania paska przesuwania będzie zmieniał się rozmiar tekstu.
